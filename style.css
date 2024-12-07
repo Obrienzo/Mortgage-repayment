@@ -237,6 +237,7 @@ h2 {
     button[type="submit"] {
         width: fit-content;
         margin-left: 0;
+        margin-bottom: 0;
     }
 
     .repayment-display {
