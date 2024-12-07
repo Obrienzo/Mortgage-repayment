@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Mortgage repayment calculator</title>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body>
+
+  <div id="app">
+    <main>
+      
+      <section>
+        <form>
+          <div class="calc-header">
+            <h1 class="title">Mortgage Calculator</h1>
+            <button class="clear-btn">Clear All</button>
+          </div>
+          <div class="calc-value">
+            <label for="mortg-amount">
+              Mortgage Amount
+              <div class="block left">
+                <span>&#163;</span>
+                <input type="text" name="mortg-amount" id="mortg-amount">
+              </div>
+            </label>
+  
+            <label for="mortg-term">
+              Mortgage Term
+              <div class="block right">
+                <span>years</span>
+                <input type="text" name="mortg-term" id="mortg-term">
+              </div>
+            </label>
+  
+            <label for="interest-rate">
+              Interest Rate
+              <div class="block right">
+                <span>&#37;</span>
+                <input type="text" name="interest-rate" id="interest-rate">
+              </div>
+            </label>
+          </div>
+  
+  
+          <div class="mortgage-types">
+            <label>Mortgage Type</label>
+            <div>
+              <input type="radio" id="repayment" name="mortgage-types" />
+              <label for="repayment">Repayment</label>
+            </div>
+  
+            <div>
+              <input type="radio" id="interest-only" name="mortgage-types" />
+              <label for="interest-only">Interest Only</label>
+            </div>
+          </div>
+  
+  
+          <button type="submit">
+            <ion-icon name="calculator"></ion-icon>
+            Calculate Repayments
+          </button>
+        </form>
+      </section>
+
+
+      <section class="repayment-display">
+        <article class="empty-display">
+          <img src="assets/images/illustration-empty.svg" alt="illustration-empty">
+          <section>
+            <h2>Results shown here</h2>
+            <p>
+              Complete the form and click <q>calculate repayments</q> to see what your monthly repayments would be.
+            </p>
+          </section>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
