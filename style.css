@@ -18,6 +18,7 @@ input {
     display: block;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 input:focus {
@@ -58,7 +59,10 @@ button {
     --weight-700: 700;
 
     --border-radius: 0.8rem;
+    --radius-small: 1.6rem;
     --radius-medium: 2.5rem;
+
+    --transition: all 250ms ease-in-out;
 }
 
 body {
@@ -74,7 +78,7 @@ body {
 
 main {
     background-color: var(--White);
-    max-width: 95.5rem;
+    max-width: 84.5rem;
 }
 
 form {
@@ -94,9 +98,14 @@ h1 {
 
 .clear-btn {
     font-size: 1.68rem;
-    color: var(--Slate-700);
+    color: var(--Slate-500);
     text-decoration: underline;
     text-underline-offset: 0.2rem;
+    transition: var(--transition);
+}
+
+.clear-btn:hover {
+    color: var(--Slate-900);
 }
 
 
@@ -111,12 +120,27 @@ h1 {
 }
 
 .block {
-    border: 0.1rem solid var(--Slate-900);
+    border: 0.1rem solid var(--Slate-300);
     border-radius: var(--border-radius);
     margin-top: 0.8rem;
     display: flex;
     align-items: center;
     overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.mortgage-amount .block:focus-within {
+    border-color: var(--Lime);
+}
+
+.mortgage-amount .block:focus-within span {
+    background-color: var(--Lime);
+    color: var(--Slate-900);
+}
+
+.block:hover {
+    border: 0.1rem solid var(--Slate-900);
 }
 
 .block input {
@@ -128,6 +152,7 @@ h1 {
 
 .block span {
     flex-shrink: 0;
+    font-weight: var(--weight-700);
     padding: 1.3rem;
     background-color: var(--Slate-100);
 }
@@ -139,24 +164,31 @@ h1 {
 .mortgage-types {
     display: flex;
     flex-direction: column;
-    gap: 1.0rem;
+    gap: 1.5rem;
     color: var(--Slate-500);
 }
 
-.mortgage-types div {
-    border: 0.1rem solid var(--Slate-900);
+.mortgage-types section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.mortgage-types label {
+    font-weight: var(--weight-700);
+    color: var(--Slate-900);
+    border: 0.1rem solid var(--Slate-300);
     border-radius: var(--border-radius);
     padding: 1.3rem;
     display: flex;
     gap: 1.0rem;
     align-items: center;
+    transition: var(--transition);
 }
 
-.mortgage-types div label {
-    font-weight: var(--weight-700);
-    color: var(--Slate-900);
+.mortgage-types label:hover {
+    border-color: var(--Lime);
 }
-
 
 button[type="submit"] {
     background-color: var(--Lime);
@@ -171,6 +203,11 @@ button[type="submit"] {
     justify-content: center;
     gap: 0.5rem;
     align-items: center;
+    transition: var(--transition);
+}
+
+button[type="submit"]:hover {
+    background-color: hsl(61, 70%, 72%);
 }
 
 
@@ -210,12 +247,18 @@ h2 {
     .mortgage-amount {
         grid-column: 1 / -1;
     }
+
+    h1 {
+        font-size: 1.8rem;
+        align-self: flex-end;
+    }
 }
 
 
 
 
 @media screen and (min-width: 768px) {
+
     body {
         background-color: var(--Slate-100);
     }
@@ -225,7 +268,7 @@ h2 {
         grid-template-columns: repeat(2, 1fr);
         gap: 2.0rem;
         overflow: hidden;
-        border-radius: var(--radius-medium);
+        border-radius: var(--radius-small);
     }
 
     .calc-header {
@@ -243,6 +286,6 @@ h2 {
     .repayment-display {
         display: grid;
         place-content: center;
-        border-radius: 0 0 0 100px / 120px;
+        border-radius: 0 0 0 8.5rem;
     }
 }
