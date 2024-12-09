@@ -10,6 +10,8 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
   <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
+
  
 </head>
 <body>
@@ -61,19 +63,19 @@
             <p>Mortgage Type</p>
             <section>
               <label for="repayment">
-                <input type="radio" name="mortgage-types" id="repayment" />
+                <input type="radio" name="mortgage-types" value="repayment" id="repayment" />
                 Repayment
               </label>
 
               <label for="interest">
-                <input type="radio" name="mortgage-types" id="interest" />
+                <input type="radio" name="mortgage-types" value="interest" id="interest" />
                 Interest Only
               </label>
             </section>
           </div>
   
   
-          <button type="submit">
+          <button type="submit" class="submit-btn">
             <ion-icon name="calculator"></ion-icon>
             Calculate Repayments
           </button>
