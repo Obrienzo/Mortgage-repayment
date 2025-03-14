@@ -279,6 +279,15 @@ h2 {
     color: var(--Slate-300);
 }
 
+.sr-only {
+    font-size: 1.0rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    color: black;
+    opacity: 0.6;
+}
+
+
 
 
 
