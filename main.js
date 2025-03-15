@@ -1,52 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    const calculatorDisplay = document.querySelector('.repayment-display');
+    calculatorDisplay.innerHTML = `${UpdateDisplay()}`;
+
+
     // Page UI Element on the page to be used...
-    const clearBtn = document.querySelector('.clear-btn');
-    const mortgageAmount = document.querySelector('#mortg-amount');
-    const mortgageTerm = document.querySelector('#mortg-term');
-    const mortgageInterestRate = document.querySelector('#interest-rate');
-    const mortgageTypes = document.getElementsByName('mortgage-types');
+    const refreshBtn = document.querySelector('.clear-btn');
+    const principalAmount = document.querySelector('#mortg-amount');
+    const loanTerm = document.querySelector('#mortg-term');
+    const loanRate = document.querySelector('#interest-rate');
     const repaymentRadio = document.querySelector('#repayment');
-    const interestRadion = document.querySelector('#interest');
-    const calculateButton = document.querySelector('.submit-btn');
+    const interestRadio = document.querySelector('#interest');
+    const submitButton = document.querySelector('.submit-btn');
 
 
-    // Create the calculator functionallity
-    const princinpalAmount = Number(mortgageAmount.value);
-    const loanTerm = Number(mortgageTerm.value);
-    const interestRate = Number(mortgageInterestRate.value);
-    const types = Array.from(mortgageTypes);
+    // Form submit event 
+    submitButton.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+
+        // Create the calculator functionallity
+        const princinpalValue = Number(principalAmount.value);
+        const loanTermValue = Number(loanTerm.value);
+        const rateValue = Number(loanRate.value);
+
+        // Calculation for each component in the form...
+        const numberOfPayments = loanTermValue * 12; // The total number of payments over the loan's lifetime, calculated by multiplying the number of months in a year...
+        const monthlyInterestRate = (rateValue / 100) / 12; // The annual interest rate divided by 12 (the number of months in a year)...
+
+
+        // # Create the calculator function logic...
+        const repaymentResult = calculateMonthlyRepayment(princinpalValue, monthlyInterestRate, numberOfPayments);
+        const interestOnlyResult = calculateMonthlyInterestRate(princinpalValue, monthlyInterestRate);
+    })
+
+
+    
     // console.log(mortgageTypes);
 
 
-    if (repaymentRadio.checked) {
-        console.log('repayment radio')
-    }
+    
+
 
     function clearContent() {
-        mortgageAmount.value = '';
-        mortgageTerm.value = '';
-        dealYears.value = '';
-        mortgageTypes.value = '';
+        principalAmount.value = '';
+        loanTerm.value = '';
+        rateValue.value = '';
+        repaymentRadio.checked = true;
+        interestRadio.checked = false;
     }
 
-    clearBtn.addEventListener('click', clearContent); // Event listener for clearContent the content of input fields...
+    refreshBtn.addEventListener('click', clearContent); // Event listener for clearContent the content of input fields...
 
 
-    // # Create the calculator function logic...
 
-    const repaymentResult = calculateMonthlyRepayment(princinpalAmount, monthlyInterestRate, numberOfPayments);
-    const interestOnlyResult = interestOnlyMortgage(princinpalAmount, monthlyInterestRate);
 
-    // Calculation for each component in the form...
-    const numberOfPayments = loanTerm * 12; // The total number of payments over the loan's lifetime, calculated by multiplying the number of months in a year...
-    const monthlyInterestRate = (interestRate / 100) / 12; // The annual interest rate divided by 12 (the number of months in a year)...
+    
 
 
 
     // Function for calculating the mortgage repayment type..
     
-    // REPAYMENT
+    // REPAYMENT mortgage type....
     function calculateMonthlyRepayment(amount, interest, term) { // The amount to be paid each month...
         const mortageRepayment = amount * ((interest * (1 + interest)**term) / ((1 + interest)**term - 1));
         
@@ -54,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // INTEREST ONLY 
+    // Function for calculating INTEREST ONLY mortgage type....
     function calculateMonthlyInterestRate(principal, rate) {
         const interesAmount = principal * rate;
 
@@ -90,18 +105,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Function to display repayment mortage type results...
-    function displayRepaymentResults() {
+    function displayRepaymentResults(repayment, total) {
         const container = document.createElement('div');
         container.classList.add('results', 'repayment-results');
         container.innerHTML = `
             <section class='monthly-repayment'>
                <span class='results-title'>Your monthly repayments</span>
-               <p class='operation-outcome'>£${repaymentResult}</p>
+               <p class='operation-outcome'>£${repayment}</p>
             </section>
             <hr>
             <section class='amount-tobepaid'>
                <span class='results-title'>Total you'll repay over the term</span>
-               <p class='amount-compound'>£${totalToBeRepaid}</p>
+               <p class='amount-compound'>£${total}</p>
             </section>
         `;
 
@@ -110,19 +125,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Function to display interest only on mortgage results...
-    function displayInterestOnlyResults() {
+    function displayInterestOnlyResults(interest) {
         const container = document.createElement('div'); 
         container.classList.add('results', 'interest-only');
 
         container.innerHTML = `
             <section class='monthly-interest'>
                <span class='results-title'>Your monthly interest over the term</span>
-               <p class='amount-compound'>£${interestOnlyResult}</p>
+               <p class='amount-compound'>£${interest}</p>
             </section>
         `;
 
         return container;
     }
+
+
+    // Function to update the content of display content when the page loads or after clearing the input fields...
+    function UpdateDisplay() {
+        return `
+            <article class="empty-display">
+                <img src="assets/images/illustration-empty.svg" alt="illustration-empty">
+                <section>
+                    <h2>Results shown here</h2>
+                    <p>
+                    Complete the form and click <q>calculate repayments</q> to see what your monthly repayments would be.
+                    </p>
+                </section>
+           </article>
+        `;
+    }
+
 
 
 })
