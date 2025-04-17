@@ -14,6 +14,14 @@ label {
     cursor: pointer;
 }
 
+ul {
+    list-style-type: none;
+}
+
+legend {
+    margin-bottom: 1.2rem;
+}
+
 input {
     display: block;
     border: none;
@@ -199,6 +207,12 @@ h1 {
 
 
 
+
+fieldset ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.0rem;
+}
 
 .mortgage-types label {
     position: relative;

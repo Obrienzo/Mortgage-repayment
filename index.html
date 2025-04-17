@@ -23,16 +23,16 @@
         <form>
           <div class="calc-header">
             <h1 class="title">Mortgage Calculator</h1>
-            <button class="clear-btn">Clear All</button>
+            <button type="reset" class="clear-btn">Clear All</button>
           </div>
           <div class="calc-value">
             <div class="mortgage-amount">
-              <label for="mortg-amount">
+              <label for="amount">
                 Mortgage Amount
               </label>
               <div class="block">
                 <span>&#163;</span>
-                <input type="text" name="mortg-amount" id="mortg-amount" value="" data-type="currency">
+                <input type="tel" name="amount" id="amount">
               </div>
               <p id="mortgageAmountHelp" class="sr-only">Enter the total amount of the mortgage in dollars.</p>
             </div>
@@ -42,23 +42,23 @@
              -->
   
             <div class="mortgage-term">
-              <label for="mortg-term">
+              <label for="term">
                 Mortgage Term
               </label>
               <div class="block right">
                 <span>years</span>
-                <input type="text" name="mortg-term" id="mortg-term">
+                <input type="number" name="term" id="term">
               </div>
               <p id="mortgageTermHelp" class="sr-only">Enter the length of the mortgage term in years.</p>
             </div>
   
             <div class="interest">
-              <label for="interest-rate">
+              <label for="rate">
                 Interest Rate
               </label>
               <div class="block right">
                 <span>&#37;</span>
-                <input type="text" name="interest-rate" id="interest-rate">
+                <input type="number" name="rate" id="rate" step="0.01">
               </div>
               <p id="interestRateHelp" class="sr-only">Enter the annual interest rate as a percentage.</p>
             </div>
@@ -66,21 +66,23 @@
           </div>
   
   
-          <div class="mortgage-types">
-            <p>Mortgage Type</p>
-            <section>
-              <label for="repayment">
-                <input type="radio" name="mortgage-types" value="repayment" id="repayment" />
-                Repayment
-              </label>
-
-              <label for="interest">
-                <input type="radio" name="mortgage-types" value="interest" id="interest" />
-                Interest Only
-              </label>
-            </section>
-            <p id="repaymentHelp" class="sr-only">Choose between interest-only payments or repayment payments.</p>
-          </div>
+          <fieldset class="mortgage-types">
+            <legend>Mortgage Type</legend>
+            <ul>
+              <li>
+                <label for="repayment">
+                  <input type="radio" name="mortgage-types" id="repayment" value="repayment">
+                  Repayment
+                </label>
+              </li>
+              <li>
+                <label for="interest">
+                  <input type="radio" name="mortgage-types" id="interest" value="interest">
+                  Interest Only
+                </label>
+              </li>
+            </ul>
+          </fieldset>
   
   
           <button type="submit" class="submit-btn">

@@ -42,15 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
 
-    function clearContent() {
-        principalAmount.value = '';
-        loanTerm.value = '';
-        rateValue.value = '';
-        repaymentRadio.checked = true;
-        interestRadio.checked = false;
-    }
+    // function clearContent() {
+    //     principalAmount.value = '';
+    //     loanTerm.value = '';
+    //     rateValue.value = '';
+    //     repaymentRadio.checked = true;
+    //     interestRadio.checked = false;
+    // }
 
-    refreshBtn.addEventListener('click', clearContent); // Event listener for clearContent the content of input fields...
+    // refreshBtn.addEventListener('click', clearContent); // Event listener for clearContent the content of input fields...
 
 
 
