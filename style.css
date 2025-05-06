@@ -104,6 +104,11 @@ h1 {
     color: var(--Slate-900);
 }
 
+input::placeholder {
+    font-family: monospace;
+    opacity: 0.7;
+}
+
 .clear-btn {
     font-size: 1.68rem;
     color: var(--Slate-500);
@@ -214,6 +219,10 @@ fieldset ul {
     gap: 1.0rem;
 }
 
+fieldset {
+    border: none;
+}
+
 .mortgage-types label {
     position: relative;
 }
@@ -301,6 +310,54 @@ h2 {
     opacity: 0.6;
 }
 
+.display-box {
+    text-align: start;
+}
+
+.display-box h2 {
+    color: var(--White);
+}
+
+.display-box h2 + p {
+    margin-bottom: 3.5rem;
+}
+
+.results-wrapper {
+    background-color: #0e2431;
+    padding: 1.8rem;
+    overflow: hidden;
+    border-radius: var(--radius-small);
+    border-top: 0.4rem solid var(--Lime);
+}
+
+.results-title {
+    color: var(--Slate-500);
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+.monthly-repayment .operation-outcome {
+    color: var(--Lime);
+    font-size: 4.5rem;
+    font-weight: var(--weight-700);
+}
+
+.monthly-repayment {
+    border-bottom: 0.05rem solid var(--Slate-700);
+    padding-bottom: 1.8rem;
+}
+
+.amount-tobepaid {
+    padding-top: 1.8rem;
+}
+
+.amount-tobepaid .amount-compound {
+    font-size: 2.0rem;
+    color: var(--White);
+    font-weight: var(--weight-700);
+}
+
 
 
 
@@ -353,8 +410,16 @@ h2 {
     }
 
     .repayment-display {
+        border-radius: 0 0 0 8.5rem;
+    }
+
+    .empty-display {
+        height: 100%;
         display: grid;
         place-content: center;
-        border-radius: 0 0 0 8.5rem;
+    }
+
+    .empty-display img {
+        margin: auto;
     }
 }

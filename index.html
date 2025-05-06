@@ -10,7 +10,7 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
   <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
+  <script type="module" src="main.js" defer></script>
 
  
 </head>
@@ -32,9 +32,9 @@
               </label>
               <div class="block">
                 <span>&#163;</span>
-                <input type="tel" name="amount" id="amount">
+                <input type="tel" name="amount" id="amount" required>
               </div>
-              <p id="mortgageAmountHelp" class="sr-only">Enter the total amount of the mortgage in dollars.</p>
+              <p id="mortgageAmountHelp" class="sr-only">Enter the total amount of the mortgage.</p>
             </div>
 
             <!--
@@ -47,7 +47,7 @@
               </label>
               <div class="block right">
                 <span>years</span>
-                <input type="number" name="term" id="term">
+                <input type="number" name="term" id="term" min="0" required>
               </div>
               <p id="mortgageTermHelp" class="sr-only">Enter the length of the mortgage term in years.</p>
             </div>
@@ -58,7 +58,7 @@
               </label>
               <div class="block right">
                 <span>&#37;</span>
-                <input type="number" name="rate" id="rate" step="0.01">
+                <input type="number" name="rate" id="rate" min="0.00" step="0.01" placeholder="5.25" required>
               </div>
               <p id="interestRateHelp" class="sr-only">Enter the annual interest rate as a percentage.</p>
             </div>
@@ -94,7 +94,7 @@
 
 
       <section class="repayment-display">
-        <!-- Dynamically displayed: line 4 of main.js file code-->
+        <!-- Dynamically displayed: update.js file code-->
       </section>
     </main>
   </div>
