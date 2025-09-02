@@ -23,6 +23,7 @@ legend {
 }
 
 input {
+    font-family: inherit;
     display: block;
     border: none;
     outline: none;
@@ -45,6 +46,10 @@ button {
     outline: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+img {
+    max-width: 100%;
 }
 
 @font-face {
